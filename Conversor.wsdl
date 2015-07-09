@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="farenheitParaCelsius">
+    <complexType>
+     <sequence>
+      <element name="farenheit" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="farenheitParaCelsiusResponse">
+    <complexType>
+     <sequence>
+      <element name="farenheitParaCelsiusReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="celsiusParaFarenheit">
+    <complexType>
+     <sequence>
+      <element name="celsius" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="celsiusParaFarenheitResponse">
+    <complexType>
+     <sequence>
+      <element name="celsiusParaFarenheitReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="celsiusParaFarenheitResponse">
+
+      <wsdl:part element="impl:celsiusParaFarenheitResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="celsiusParaFarenheitRequest">
+
+      <wsdl:part element="impl:celsiusParaFarenheit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="farenheitParaCelsiusResponse">
+
+      <wsdl:part element="impl:farenheitParaCelsiusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="farenheitParaCelsiusRequest">
+
+      <wsdl:part element="impl:farenheitParaCelsius" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Conversor">
+
+      <wsdl:operation name="farenheitParaCelsius">
+
+         <wsdl:input message="impl:farenheitParaCelsiusRequest" name="farenheitParaCelsiusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:farenheitParaCelsiusResponse" name="farenheitParaCelsiusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="celsiusParaFarenheit">
+
+         <wsdl:input message="impl:celsiusParaFarenheitRequest" name="celsiusParaFarenheitRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:celsiusParaFarenheitResponse" name="celsiusParaFarenheitResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ConversorSoapBinding" type="impl:Conversor">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="farenheitParaCelsius">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="farenheitParaCelsiusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="farenheitParaCelsiusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="celsiusParaFarenheit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="celsiusParaFarenheitRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="celsiusParaFarenheitResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ConversorService">
+
+      <wsdl:port binding="impl:ConversorSoapBinding" name="Conversor">
+
+         <wsdlsoap:address location="http://localhost:8080/ConversorWS/services/Conversor"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
